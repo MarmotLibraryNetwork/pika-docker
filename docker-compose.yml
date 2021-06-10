@@ -68,8 +68,8 @@ services:
       context: ./build/mariadb
     container_name: 'mariadb'
     restart: 'always'
-    ports:
-      - "${HOST_MYSQL_PORT}:3306"
+    #ports:
+      #- "${HOST_MYSQL_PORT}:3306"
     networks:
       - backend
     volumes: 
