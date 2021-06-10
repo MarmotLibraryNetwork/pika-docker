@@ -3,7 +3,8 @@ FROM httpd:2.4-alpine
 RUN set -ex;
 RUN rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
-RUN apk update
+RUN apk update; \
+    apk upgrade; 
 
 # Copy apache vhost file to proxy php requests to php-fpm container
 #COPY demo.apache.conf /usr/local/apache2/conf/demo.apache.conf

@@ -2,4 +2,5 @@
 /data/*
 /logs/*
 /www/**
+/html/cache/**
 .DS_Store
