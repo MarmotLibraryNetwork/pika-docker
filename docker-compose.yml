@@ -21,11 +21,6 @@ services:
       - ${DOCUMENT_ROOT-./html}:/usr/local/apache2/htdocs
       - ./config/vhosts/vhosts.apache.conf:/usr/local/apache2/conf/vhosts.apache.conf
       - ./logs/apache2:/usr/local/apache2/logs
-  
-  #pika:
-  #  build:
-  #    context: ./build/pika
-  #  container_name: 'pika'
 
   php:
     build: 
@@ -89,34 +84,10 @@ services:
     ports:
       - "${HOST_MEMCACHED_PORT}:11211"
 
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   container_name: 'phpmyadmin'
-  #   networks:
-  #     - frontend
-  #     - backend
-  #   depends_on:
-  #     - mysql
-  #   environment:
-  #     PMA_HOST: mysql
-  #     PMA_PORT: 3306
-  #     PMA_USER: ${MYSQL_USER}
-  #     PMA_PASSWORD: ${MYSQL_PASSWORD}
-  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  #     MYSQL_USER: ${MYSQL_USER}
-  #     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-  #   ports:
-  #     - '8080:80'
-  #   volumes: 
-  #     - /sessions
-  
-  # redis:
-  #   container_name: 'redis'
-  #   image: redis:5-alpine
-  #   networks: 
-  #     - backend
-  #   ports:
-  #     - "${HOST_REDIS_PORT}:6379"
+  #pika:
+  #  build:
+  #    context: ./build/pika
+  #  container_name: 'pika'
 
 networks:
   frontend:
