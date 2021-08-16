@@ -24,7 +24,7 @@ services:
 
   php:
     build: 
-      context: ./build/php # build is working 6-7-21
+      context: ./build/php
     container_name: 'php'
     networks:
       - backend
@@ -51,7 +51,7 @@ services:
       - backend
       - frontend
     ports:
-      - "8983:8983"
+      - "${HOST_SOLR_1_PORT}:8983"
     volumes:
       - ./data/solr:/var/solr
     command:
@@ -63,8 +63,8 @@ services:
       context: ./build/mariadb
     container_name: 'mariadb'
     restart: 'always'
-    #ports:
-      #- "${HOST_MYSQL_PORT}:3306"
+    ports: 
+      - "${HOST_MYSQL_PORT}:3306"
     networks:
       - backend
     volumes: 
