@@ -48,8 +48,10 @@ services:
       context: ./build/solr
     container_name: 'solr'
     networks:
-      - backend
-      - frontend
+      backend:
+        aliases: 
+          - solr
+      frontend:
     ports:
       - "${HOST_SOLR_1_PORT}:8983"
     volumes:
@@ -82,7 +84,9 @@ services:
     container_name: 'memcached'
     image: memcached:1.5-alpine
     networks: 
-      - backend
+      backend:
+        aliases: 
+          - memcache
     ports:
       - "${HOST_MEMCACHED_PORT}:11211"
 

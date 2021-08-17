@@ -17,6 +17,7 @@ RUN apt-get update \
 RUN docker-php-ext-install mysqli pdo_pgsql pgsql soap bz2
 # Install xdebug, memcache, gd
 RUN pecl install xdebug-2.8.0 memcached-3.1.5 \
+    # solr-2.5.1 \
     && docker-php-ext-enable xdebug memcached \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
